@@ -1,0 +1,9 @@
+.next/*
+node_modules/*
+out/*
+.vscode/*
+build/*
+conf/*
+public/*
+src/gql/*
+.svg
