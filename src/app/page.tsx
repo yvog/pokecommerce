@@ -1,28 +1,16 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Overview from './components/overview/Overview';
 
-export default function Home() {
+export default function Homepage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      HOMEPAGE
-      <Link href={`/ability/electric123`}>View ability page (opens modal)</Link>
-    </main>
+    <>
+      <header className="flex flex-col items-center justify-between p-24">
+        <h1 className="text-4xl font-bold sm:text-6xl bg-gradient-to-r from-primary to-primaryLight text-transparent bg-clip-text">
+          Pokémons
+        </h1>
+      </header>
+      <main>
+        <Overview />
+      </main>
+    </>
   );
 }
-
-// todo: server side data fetching
-/*
-query PokemonGen1OverviewQuery {
-  # Gets all the pokemon belonging to generation 1
-  gen1_species: pokemon_v2_pokemonspecies(where: {pokemon_v2_generation: {name: {_eq: "generation-i"}}}, order_by: {id: asc}) {
-    name
-    id
-  }
-}
-*/
-
-// images:
-// https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png
-// caching via next/image
-
-// svg: https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/2.svg

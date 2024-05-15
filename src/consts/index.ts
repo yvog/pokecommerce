@@ -1,0 +1,1 @@
+export const PAGE_CACHE_REVALIDATE_SECONDS = 3600;
