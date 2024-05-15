@@ -1,32 +1,20 @@
-import type { CodegenConfig } from '@graphql-codegen/cli'
+import type { CodegenConfig } from '@graphql-codegen/cli';
 
 const config: CodegenConfig = {
-    debug: true,
-    schema: [
-        // {
-        //     [process.env.HYGRAPH_API_URL]: {
-        //         headers: {
-        //             Authorization: `Bearer ${process.env.HYGRAPH_API_KEY}`,
-        //         },
-        //     },
-        // },
-    ],
-    documents: [
-        'src/**/*.graphql',
-        '!src/gql/**/*',
-    ],
-    generates: {
-        // './src/gql/': {
-        //     preset: 'client',
-        // }
-        './src/**/*.ts': {
-            preset: 'near-operation-file',
-            plugins: ['typescript-operations'],
-            presetConfig: {
-                baseTypesPath: 'types.ts'
-            },
-        },
-    }
-}
+  debug: true,
+  schema: 'https://beta.pokeapi.co/graphql/v1beta',
+  documents: ['src/**/*.graphql', '!src/gql/**/*'],
+  generates: {
+    'gql/graphql.ts': { plugins: ['typescript'] },
+    'src/': {
+      preset: 'near-operation-file',
+      plugins: ['typescript-operations'],
+      presetConfig: {
+        extension: '.graphql.ts',
+        baseTypesPath: '../gql/graphql.ts',
+      },
+    },
+  },
+};
 
-export default config
+export default config;
