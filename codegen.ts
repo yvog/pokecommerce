@@ -2,16 +2,19 @@ import type { CodegenConfig } from '@graphql-codegen/cli';
 
 const config: CodegenConfig = {
   debug: true,
-  schema: 'https://beta.pokeapi.co/graphql/v1beta',
-  documents: ['src/**/*.graphql', '!src/gql/**/*'],
+  schema: process.env.NEXT_PUBLIC_POKE_API_URL ?? '',
+  documents: 'src/**/*.graphql',
   generates: {
     'gql/graphql.ts': { plugins: ['typescript'] },
     'src/': {
       preset: 'near-operation-file',
-      plugins: ['typescript-operations'],
+      plugins: ['typescript-operations', 'typed-document-node'],
       presetConfig: {
-        extension: '.graphql.ts',
+        extension: '.generated.ts',
         baseTypesPath: '../gql/graphql.ts',
+      },
+      config: {
+        includeDirectives: true,
       },
     },
   },
