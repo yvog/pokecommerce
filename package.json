@@ -21,7 +21,8 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,json}\" ",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "npx playwright test"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
