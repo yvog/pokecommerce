@@ -1,0 +1,9 @@
+fragment PokemonCard on pokemon_v2_pokemonspecies {
+  id
+  name
+  pokemon_v2_pokemons {
+    pokemon_v2_pokemonsprites {
+      sprites(path: "other.home.front_default")
+    }
+  }
+}
