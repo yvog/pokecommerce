@@ -4,9 +4,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'unpkg.com/pokeapi-sprites@2.0.2',
+        hostname: 'raw.githubusercontent.com',
         port: '',
-        pathname: '/sprites/pokemon/other/dream-world/**',
+        pathname: '/PokeAPI/sprites/**/*',
       },
     ],
   },
