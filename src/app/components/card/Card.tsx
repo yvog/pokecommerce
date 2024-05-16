@@ -1,25 +1,13 @@
-import { capitalizeFirstChar } from '@/app/util';
-import Image from 'next/image';
-import { CardFragment } from './Card.generated';
+import React from 'react';
 
-export type CardProps = CardFragment;
+type CardProps = {
+  children: React.ReactNode;
+};
 
-export const Card = ({ id, name }: CardProps): JSX.Element => {
-  const capitalizedName = capitalizeFirstChar(name);
-
+export const Card = ({ children }: CardProps): JSX.Element => {
   return (
-    <div className="relative bg-slate-100 border-2 p-8 rounded-xl text-center h-full">
-      <Image
-        src={`https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${id}.svg`}
-        alt={capitalizedName}
-        title={capitalizedName}
-        width={300}
-        height={500}
-        className="aspect-square"
-      />
-      <h2 className="text-1xl font-bold sm:text-2xl mt-16">
-        {capitalizedName}
-      </h2>
+    <div className="relative bg-slate-100 border-2 p-8 rounded-xl h-full">
+      {children}
     </div>
   );
 };

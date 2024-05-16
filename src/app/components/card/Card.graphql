@@ -1,4 +1,0 @@
-fragment Card on pokemon_v2_pokemonspecies {
-  id
-  name
-}
