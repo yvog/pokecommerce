@@ -1,4 +1,4 @@
-query TypeEfficacy($typeName: String!) {
+query TypeEfficacies($typeName: String!) {
   pokemon_v2_typeefficacy(
     where: { pokemon_v2_type: { name: { _eq: $typeName } } }
   ) {

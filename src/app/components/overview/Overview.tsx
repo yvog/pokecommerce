@@ -30,7 +30,7 @@ export const Overview = async () => {
   const results = await getAllGen1Pokemons(limit, offset);
 
   return (
-    <div className="flex flex-row justify-center flex-wrap gap-4 py-12">
+    <div className="flex flex-row justify-center flex-wrap gap-4 pt-12">
       {results?.map((cardProps) => (
         <Link
           key={`pokemon-card-${cardProps?.id}`}

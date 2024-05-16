@@ -1,13 +1,13 @@
 import { cache } from 'react';
 import { graphQLClient } from '../../graphQLClient';
 import {
-  TypeEfficacyDocument,
-  TypeEfficacyQuery,
-} from './TypeEfficacy.generated';
+  TypeEfficaciesDocument,
+  TypeEfficaciesQuery,
+} from './TypeEfficacies.generated';
 
 export const getPokemonTypeEfficacies = cache(async (typeName: string) => {
-  const result: TypeEfficacyQuery = await graphQLClient.request(
-    TypeEfficacyDocument,
+  const result: TypeEfficaciesQuery = await graphQLClient.request(
+    TypeEfficaciesDocument,
     {
       typeName,
     }

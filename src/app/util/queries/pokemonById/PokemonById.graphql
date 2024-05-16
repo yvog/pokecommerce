@@ -1,4 +1,4 @@
-query PokemonDetailsById($id: Int!) {
+query PokemonById($id: Int!) {
   pokemon_v2_pokemon(where: { id: { _eq: $id } }) {
     id
     name
