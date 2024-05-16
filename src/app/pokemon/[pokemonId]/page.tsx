@@ -1,5 +1,5 @@
 import { Card } from '@/app/components/card/Card';
-import { PokemonDetails } from '@/app/components/pokemon-details/PokemonDetails';
+import { PokemonDetails } from '@/app/components/pokemonDetails/PokemonDetails';
 import { Root } from '@/app/components/root/Root';
 import { CACHE_REVALIDATE_SECONDS, PAGE_DESCRIPTION } from '@/app/consts';
 import { capitalizeFirstChar } from '@/app/util';

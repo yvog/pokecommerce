@@ -6,7 +6,7 @@ import Image from 'next/image';
 import {
   PokemonType,
   PokemonTypeList,
-} from '../pokemon-type-list/PokemonTypeList';
+} from '../pokemonTypeList/PokemonTypeList';
 import { Summary } from '../summary/Summary';
 
 export const revalidate = CACHE_REVALIDATE_SECONDS;

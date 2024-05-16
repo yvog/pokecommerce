@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import {
   PokemonType,
   PokemonTypeList,
-} from '../pokemon-type-list/PokemonTypeList';
+} from '../pokemonTypeList/PokemonTypeList';
 
 type PokemonTypeAttackEfficaciesProps = {
   typeName: string;

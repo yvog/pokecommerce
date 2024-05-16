@@ -1,6 +1,6 @@
 import { BreadcrumbItem } from '@/app/components/breadcrumbs/Breadcrumbs';
 import { Card } from '@/app/components/card/Card';
-import { PokemonTypeAttackEfficacies } from '@/app/components/pokemon-type-attack-efficacies/PokemonTypeAttackEfficacies';
+import { PokemonTypeAttackEfficacies } from '@/app/components/pokemonTypeAttackEfficacies/PokemonTypeAttackEfficacies';
 import { Root } from '@/app/components/root/Root';
 import { CACHE_REVALIDATE_SECONDS, PAGE_DESCRIPTION } from '@/app/consts';
 import { capitalizeFirstChar } from '@/app/util';

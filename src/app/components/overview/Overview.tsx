@@ -2,7 +2,7 @@ import { CACHE_REVALIDATE_SECONDS } from '@/app/consts';
 import { graphQLClient } from '@/app/util/graphQLClient';
 import Link from 'next/link';
 import { cache } from 'react';
-import { PokemonCard, PokemonCardProps } from '../pokemon-card/PokemonCard';
+import { PokemonCard, PokemonCardProps } from '../pokemonCard/PokemonCard';
 import {
   PokemonOverviewDocument,
   PokemonOverviewQuery,
