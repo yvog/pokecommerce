@@ -1,3 +1,7 @@
 export const capitalizeFirstChar = (value: string): string => {
-  return value.charAt(0).toUpperCase() + value.slice(1);
+  try {
+    return value.charAt(0)?.toUpperCase() + value?.slice(1);
+  } catch (e) {
+    return value;
+  }
 };

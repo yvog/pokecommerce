@@ -1,0 +1,7 @@
+fragment Efficacy on pokemon_v2_typeefficacy {
+  id
+  damage_factor
+  pokemonV2TypeByTargetTypeId {
+    name
+  }
+}
