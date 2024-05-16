@@ -1,4 +1,10 @@
-import Link from 'next/link';
+import { Card } from '@/app/components/card/Card';
+import { PokemonDetails } from '@/app/components/pokemon-details/PokemonDetails';
+import { Root } from '@/app/components/root/Root';
+import { CACHE_REVALIDATE_SECONDS, PAGE_DESCRIPTION } from '@/app/consts';
+import { capitalizeFirstChar } from '@/app/util';
+import { getPokemonById } from '@/app/util/queries/pokemonById';
+import { notFound } from 'next/navigation';
 
 type PokemonDetailPageProps = {
   params: {
@@ -6,20 +12,51 @@ type PokemonDetailPageProps = {
   };
 };
 
-export default function PokemonDetailPage({ params }: PokemonDetailPageProps) {
-  const pokemonId = params?.pokemonId;
+export const revalidate = CACHE_REVALIDATE_SECONDS;
+
+export async function generateMetadata({ params }: PokemonDetailPageProps) {
+  const pokemonId = Number(params?.pokemonId ?? 0);
+  const data = await getPokemonById(pokemonId);
+  const pokemon = data?.pokemon_v2_pokemon?.[0];
+
+  return {
+    title: pokemon
+      ? `${capitalizeFirstChar(pokemon?.name ?? '')} details | Pokecommerce`
+      : 'Details | Pokecommerce',
+    description: PAGE_DESCRIPTION,
+  };
+}
+
+export default async function PokemonDetailPage({
+  params,
+}: PokemonDetailPageProps) {
+  const pokemonId = Number(params?.pokemonId ?? 0);
+  const data = await getPokemonById(pokemonId);
+
+  if (!data) {
+    return notFound();
+  }
+
+  const pokemon = data?.pokemon_v2_pokemon?.[0];
+  const capitalizedName = capitalizeFirstChar(pokemon?.name ?? '');
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Detail page for Pokémon with id: {pokemonId}
-        </p>
-
-        <Link href={`/pokemon/${pokemonId}/ability/electric123`}>
-          View ability details (opens modal)
-        </Link>
-      </div>
-    </main>
+    <Root
+      title={`View ${capitalizedName} Details`}
+      breadcrumbs={[
+        {
+          text: 'Overview',
+          href: '/',
+        },
+        {
+          text: capitalizedName,
+          current: true,
+        },
+      ]}
+    >
+      <Card>
+        <PokemonDetails pokemonId={pokemonId} />
+      </Card>
+    </Root>
   );
 }

@@ -1,14 +1,14 @@
-import { graphQLClient } from '@/app/client';
-import { PAGE_CACHE_REVALIDATE_SECONDS } from '@/consts';
+import { CACHE_REVALIDATE_SECONDS } from '@/app/consts';
+import { graphQLClient } from '@/app/util/graphQLClient';
 import Link from 'next/link';
-import { Suspense, cache } from 'react';
-import { Card, CardProps } from '../card/Card';
+import { cache } from 'react';
+import { PokemonCard, PokemonCardProps } from '../pokemon-card/PokemonCard';
 import {
   PokemonOverviewDocument,
   PokemonOverviewQuery,
 } from './Overview.generated';
 
-export const revalidate = PAGE_CACHE_REVALIDATE_SECONDS;
+export const revalidate = CACHE_REVALIDATE_SECONDS;
 
 export const getAllGen1Pokemons = cache(
   async (limit: number, offset: number) => {
@@ -20,25 +20,26 @@ export const getAllGen1Pokemons = cache(
       }
     );
 
-    return results.gen1_species as CardProps[];
+    return results.gen1_species as PokemonCardProps[];
   }
 );
 
-export default async function Overview(): Promise<JSX.Element> {
-  const results = await getAllGen1Pokemons(12, 0);
+export const Overview = async () => {
+  const limit = 12;
+  const offset = 0;
+  const results = await getAllGen1Pokemons(limit, offset);
 
   return (
-    <div className="grid grid-cols-1 gap-4 p-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-items-center">
-      <Suspense fallback={<div>Loading...</div>}>
-        {results?.map((cardProps) => (
-          <Link
-            href={`/pokemon/${cardProps.id}`}
-            className="self-stretch hover:shadow hover:shadow-xl hover:scale-105 transition-shadow transition-transform"
-          >
-            <Card {...cardProps} />
-          </Link>
-        ))}
-      </Suspense>
+    <div className="flex flex-row justify-center flex-wrap gap-4 py-12">
+      {results?.map((cardProps) => (
+        <Link
+          key={`pokemon-card-${cardProps?.id}`}
+          href={`/pokemon/${cardProps.id}`}
+          className="flex-1 text-center block self-stretch rounded-xl hover:shadow-xl hover:scale-105 transition-transform"
+        >
+          <PokemonCard {...cardProps} />
+        </Link>
+      ))}
     </div>
   );
-}
+};

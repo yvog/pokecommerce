@@ -1,16 +1,17 @@
-import Overview from './components/overview/Overview';
+import { Metadata } from 'next';
+import { Overview } from './components/overview/Overview';
+import { Root } from './components/root/Root';
+import { PAGE_DESCRIPTION } from './consts';
 
-export default function Homepage() {
+export const metadata: Metadata = {
+  title: 'Pokecommerce | Your go-to Pokémon market place',
+  description: PAGE_DESCRIPTION,
+};
+
+export default function OverviewPage() {
   return (
-    <>
-      <header className="flex flex-col items-center justify-between p-24">
-        <h1 className="text-4xl font-bold sm:text-6xl bg-gradient-to-r from-primary to-primaryLight text-transparent bg-clip-text">
-          Pokémons
-        </h1>
-      </header>
-      <main>
-        <Overview />
-      </main>
-    </>
+    <Root title="Pokémons">
+      <Overview />
+    </Root>
   );
 }

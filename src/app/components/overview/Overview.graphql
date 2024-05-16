@@ -1,11 +1,10 @@
 query PokemonOverview($limit: Int!, $offset: Int!) {
-  # Gets all the pokemon belonging to generation 1
   gen1_species: pokemon_v2_pokemonspecies(
     limit: $limit
     offset: $offset
     where: { pokemon_v2_generation: { name: { _eq: "generation-i" } } }
     order_by: { id: asc }
   ) {
-    ...Card
+    ...PokemonCard
   }
 }
