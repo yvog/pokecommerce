@@ -22,7 +22,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Development
 
-1. First, creat a local .env file based on `.env.example`.
+1. First, create a local .env file based on `.env.example`.
 
 2. Then, generate the GraphQL types:
 
