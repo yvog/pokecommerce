@@ -4,11 +4,10 @@
     "next",
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "plugin:yaml/recommended"
+    "prettier"
   ],
-  "plugins": ["@typescript-eslint", "prettier", "yaml", "react"],
-  "ignorePatterns": ["**/*.d.ts", "**/*.js"],
+  "plugins": ["@typescript-eslint", "prettier", "react"],
+  "ignorePatterns": ["**/*.d.ts", "**/*.generated.ts", "**/*.js"],
   "rules": {
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "error",

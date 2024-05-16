@@ -39,3 +39,7 @@ next-env.d.ts
 /gql
 /src/**/*.generated.ts
 .env
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
