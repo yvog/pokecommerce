@@ -28,7 +28,7 @@ export const Breadcrumbs = ({ links }: BreadcrumbsProps): JSX.Element => {
           {current || !href ? (
             <RACLink className="data-[current=true]:font-bold">{text}</RACLink>
           ) : (
-            <Link href="/" className="hover:underline">
+            <Link href={href} className="hover:underline">
               {text}
             </Link>
           )}

@@ -16,7 +16,7 @@ export const PokemonTypeList = async ({
   types,
 }: PokemonTypeListProps) => {
   return (
-    <ul className="flex">
+    <ul className="flex flex-wrap">
       {types?.map(({ id, name, href }) => {
         return (
           <li key={`${listId}-${id}`}>

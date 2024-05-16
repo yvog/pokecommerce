@@ -47,7 +47,7 @@ export const PokemonDetails = async ({ pokemonId }: PokemonDetailsProps) => {
   );
 
   return (
-    <div className="flex xl:gap-32 sm:gap-16 flex-wrap">
+    <div className="flex xl:gap-32 gap-16 flex-wrap flex-col sm:flex-row">
       <div className="flex-1">
         <h2 className="text-1xl font-bold sm:text-2xl">{capitalizedName}</h2>
         <Image
