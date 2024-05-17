@@ -1,5 +1,5 @@
 import { cache } from 'react';
-import { graphQLClient } from '../../graphQLClient';
+import { graphQLClient } from '../../../shared/graphQLClient';
 import {
   TypeEfficaciesDocument,
   TypeEfficaciesQuery,

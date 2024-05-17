@@ -1,5 +1,5 @@
 import { CACHE_REVALIDATE_SECONDS } from '@/app/consts';
-import { graphQLClient } from '@/app/util/graphQLClient';
+import { graphQLClient } from '@/app/util/shared/graphQLClient';
 import Link from 'next/link';
 import { cache } from 'react';
 import { PokemonCard, PokemonCardProps } from '../pokemonCard/PokemonCard';
@@ -30,12 +30,12 @@ export const Overview = async () => {
   const results = await getAllGen1Pokemons(limit, offset);
 
   return (
-    <div className="flex flex-row justify-center flex-wrap gap-4 pt-12">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center gap-4 pt-12">
       {results?.map((cardProps) => (
         <Link
           key={`pokemon-card-${cardProps?.id}`}
           href={`/pokemon/${cardProps.id}`}
-          className="flex-1 text-center block self-stretch rounded-xl hover:shadow-xl hover:scale-105 transition-transform"
+          className="text-center block self-stretch rounded-xl hover:shadow-xl hover:scale-105 transition-transform"
         >
           <PokemonCard {...cardProps} />
         </Link>

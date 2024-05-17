@@ -1,7 +1,7 @@
 import { CACHE_REVALIDATE_SECONDS } from '@/app/consts';
-import { capitalizeFirstChar } from '@/app/util';
 import { clamp } from '@/app/util/math';
-import { getPokemonById } from '@/app/util/queries/pokemonById';
+import { getPokemonById } from '@/app/util/shared/queries/pokemonById';
+import { capitalizeFirstChar } from '@/app/util/text';
 import Image from 'next/image';
 import {
   PokemonType,

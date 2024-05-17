@@ -1,4 +1,4 @@
-import { capitalizeFirstChar } from '@/app/util';
+import { capitalizeFirstChar } from '@/app/util/text';
 import Image from 'next/image';
 import { Card } from '../card/Card';
 import { PokemonCardFragment } from './PokemonCard.generated';
@@ -24,7 +24,7 @@ export const PokemonCard = ({
         className="mx-auto"
       />
 
-      <h2 className="text-1xl font-bold sm:text-2xl mt-16">
+      <h2 className="text-xl font-bold sm:text-2xl mt-16 truncate">
         {capitalizedName}
       </h2>
     </Card>

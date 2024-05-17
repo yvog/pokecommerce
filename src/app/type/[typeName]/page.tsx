@@ -3,8 +3,8 @@ import { Card } from '@/app/components/card/Card';
 import { PokemonTypeAttackEfficacies } from '@/app/components/pokemonTypeAttackEfficacies/PokemonTypeAttackEfficacies';
 import { Root } from '@/app/components/root/Root';
 import { CACHE_REVALIDATE_SECONDS, PAGE_DESCRIPTION } from '@/app/consts';
-import { capitalizeFirstChar } from '@/app/util';
-import { getPokemonById } from '@/app/util/queries/pokemonById';
+import { getPokemonById } from '@/app/util/shared/queries/pokemonById';
+import { capitalizeFirstChar } from '@/app/util/text';
 
 export type PokemonTypesDetailsPageProps = {
   params: {

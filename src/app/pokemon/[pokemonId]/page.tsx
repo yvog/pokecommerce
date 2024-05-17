@@ -2,8 +2,8 @@ import { Card } from '@/app/components/card/Card';
 import { PokemonDetails } from '@/app/components/pokemonDetails/PokemonDetails';
 import { Root } from '@/app/components/root/Root';
 import { CACHE_REVALIDATE_SECONDS, PAGE_DESCRIPTION } from '@/app/consts';
-import { capitalizeFirstChar } from '@/app/util';
-import { getPokemonById } from '@/app/util/queries/pokemonById';
+import { getPokemonById } from '@/app/util/shared/queries/pokemonById';
+import { capitalizeFirstChar } from '@/app/util/text';
 import { notFound } from 'next/navigation';
 
 type PokemonDetailPageProps = {

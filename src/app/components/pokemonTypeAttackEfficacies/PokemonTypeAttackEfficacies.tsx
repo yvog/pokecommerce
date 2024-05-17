@@ -1,5 +1,5 @@
-import { getPokemonTypeEfficacies } from '@/app/util/queries/typeEfficacies';
-import { EfficacyFragment } from '@/app/util/queries/typeEfficacies/Efficacy.generated';
+import { getPokemonTypeEfficacies } from '@/app/util/shared/queries/typeEfficacies';
+import { EfficacyFragment } from '@/app/util/shared/queries/typeEfficacies/Efficacy.generated';
 import { notFound } from 'next/navigation';
 import {
   PokemonType,

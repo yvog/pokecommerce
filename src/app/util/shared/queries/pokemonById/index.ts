@@ -1,4 +1,4 @@
-import { graphQLClient } from '@/app/util/graphQLClient';
+import { graphQLClient } from '@/app/util/shared/graphQLClient';
 import { cache } from 'react';
 import { PokemonByIdDocument, PokemonByIdQuery } from './PokemonById.generated';
 
